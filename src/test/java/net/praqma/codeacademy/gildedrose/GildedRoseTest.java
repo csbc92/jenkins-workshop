@@ -28,4 +28,15 @@ public class GildedRoseTest {
         assertEquals("jens", app.items[0].name);
     }
 
+    /**
+    * This is a fine bas test
+    */
+    @Test
+    public void bas() {
+        Item[] items = new Item[] { new Item("bas", 0, 0) };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertEquals("bass", app.items[0].name);
+    }
+
 }
