@@ -43,7 +43,7 @@ public class GildedRoseTest {
     * This is a fine woo test
     */
     @Test
-    public void bas() {
+    public void woo() {
         Item[] items = new Item[] { new Item("woo", 0, 0) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
