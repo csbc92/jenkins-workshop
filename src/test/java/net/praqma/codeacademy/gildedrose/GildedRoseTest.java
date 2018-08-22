@@ -25,7 +25,7 @@ public class GildedRoseTest {
         Item[] items = new Item[] { new Item("bar", 0, 0) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
-        assertEquals("jens", app.items[0].name);
+        assertEquals("bar", app.items[0].name);
     }
 
     /**
@@ -36,7 +36,7 @@ public class GildedRoseTest {
         Item[] items = new Item[] { new Item("bas", 0, 0) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
-        assertEquals("bass", app.items[0].name);
+        assertEquals("bas", app.items[0].name);
     }
 
 }
