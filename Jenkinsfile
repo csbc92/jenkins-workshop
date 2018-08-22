@@ -19,14 +19,15 @@ node {
     }
     stage('Build') {
       //sh 'mvn clean package'
-      sh 'docker run -i -v $PWD:/usr/src/mymaven -w /usr/src/mymaven --rm maven:3-jdk-8 mvn clean package'
+      sh 'docker run -i -u "$(id -u):$(id -g)" -v $PWD:/usr/src/mymaven -w /usr/src/mymaven --rm maven:3-jdk-8 mvn clean package'
    }
     stage('Javadoc') {
        // Run the goal site, which requires the Site plugin in POM file
        // Output is in folder target/site
        //sh 'mvn site'
-       sh 'docker run -i -v $PWD:/usr/src/mymaven -w /usr/src/mymaven --rm maven:3-jdk-8 mvn site'
-       archiveArtifacts 'target/site/*'
+       //sh 'docker run -i -v $PWD:/usr/src/mymaven -w /usr/src/mymaven --rm maven:3-jdk-8 mvn site'
+       //archiveArtifacts 'target/site/*'
+       //^^^^ Archiving the site results in the site directory to be owned by ROOT and thus, failes to clean up when the job is run 2nd time
        
        // This archive are build already in with the build stage.
        // Requires the java-docs plugin in POM file
@@ -35,7 +36,7 @@ node {
     stage("test"){
         // run maven tests here
         //sh 'mvn test'
-        sh 'docker run -i -v $PWD:/usr/src/mymaven -w /usr/src/mymaven --rm maven:3-jdk-8 mvn test'
+        sh 'docker run -i -u "$(id -u):$(id -g)" -v $PWD:/usr/src/mymaven -w /usr/src/mymaven --rm maven:3-jdk-8 mvn test'
     }
     stage('Results') {
       junit '**/target/surefire-reports/TEST-*.xml'
