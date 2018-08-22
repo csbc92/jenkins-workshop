@@ -48,7 +48,6 @@ public class GildedRoseTest {
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         assertEquals("woo", app.items[0].name);
-
     }
 
 }
