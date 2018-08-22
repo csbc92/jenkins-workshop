@@ -1,7 +1,7 @@
 package net.praqma.codeacademy.gildedrose;
 
 class GildedRose {
-    Item[] items;
+    Item[] items; // Must not be private..
 
     public GildedRose(Item[] items) {
         this.items = items;
