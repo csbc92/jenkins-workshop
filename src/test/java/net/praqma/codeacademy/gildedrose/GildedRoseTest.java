@@ -50,4 +50,15 @@ public class GildedRoseTest {
         assertEquals("woo", app.items[0].name);
     }
 
+    /**
+    * This is a fine roo test
+    */
+    @Test
+    public void roo() {
+        Item[] items = new Item[] { new Item("roo", 0, 0) };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertEquals("roo", app.items[0].name);
+    }
+
 }
