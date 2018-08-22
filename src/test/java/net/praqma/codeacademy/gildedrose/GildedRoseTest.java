@@ -39,4 +39,15 @@ public class GildedRoseTest {
         assertEquals("bas", app.items[0].name);
     }
 
+    /**
+    * This is a fine woo test
+    */
+    @Test
+    public void bas() {
+        Item[] items = new Item[] { new Item("woo", 0, 0) };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertEquals("woo", app.items[0].name);
+    }
+
 }
